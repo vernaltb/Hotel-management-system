@@ -5,10 +5,11 @@ from guests import *
 class Staff(Person):
     staffs = {}
     last_id = 1000
-    def __init__(self, name, contact_info, role):
+    def __init__(self, name, contact_info, role, salary):
         super().__init__(name, contact_info)
         self.unique_id = "S" + str(Staff.last_id)
         self.role = role
+        self.salary = salary
         Staff.staffs.update({self.unique_id: self})
         Staff.last_id += 1
 
@@ -16,7 +17,7 @@ class Staff(Person):
         return f"{super().__init__()}, ID: {self.unique_id}"
 
     def describe_staff(self):
-        print(f"{self.unique_id}: {self.name} is a staff member.")
+        print(f"{self.unique_id}: {self.name} is a staff member with role {self.role}.")
 
     def book_guest(self, guest_id, room_id):
         if self.role == "Receptionist":
