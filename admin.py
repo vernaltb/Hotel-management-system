@@ -36,4 +36,22 @@ class Admin(Person):
                 
 
     def generate_payroll_report(self):
-        pass
+        maintenance = []
+        receptionist = []
+        houskeeping = []
+        for staff in Staff.staffs.values():
+            if staff.role ==  "Maintenance":
+                maintenance.append(staff.salary)
+            elif staff.role == "Receptionist":
+                receptionist.append(staff.salary)
+            elif staff.role == "Houskeeping":
+                houskeeping.append(staff.salary)
+
+        avg_maintenance = sum(maintenance) / len(maintenance)
+        avg_receptionist = sum(receptionist) / len(receptionist)
+        avg_houskeeping = sum(houskeeping) / len(houskeeping)
+
+        print(f"Average salary of maintenance staff: {avg_maintenance},
+        Average salary of receptionist staff: {avg_receptionist},
+        Average salary of houskeeping staff: {avg_houskeeping}.")
+            
