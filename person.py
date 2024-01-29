@@ -16,7 +16,3 @@ class Person(ABC):
     def describe_person(self):
         pass
 
-if __name__ == "__main__":
-    person = Person("John Doe", "abcd@gmail.com",123)
-    print(person)
-
